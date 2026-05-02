@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: ai-assistant-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: ai-assistant
+
+  app:
+    build: .
+    container_name: ai-assistant-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/ai-assistant
+      NEXTAUTH_SECRET: development-secret-key-change-in-production
+      NEXTAUTH_URL: http://localhost:3000
+      NODE_ENV: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
+
+volumes:
+  mongodb_data:
