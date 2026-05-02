@@ -360,15 +360,6 @@ db.dashboardconfigs.updateOne(
 
 4. Refresh admin dashboard - see the change!
 
-## Deployment
-
-### Vercel
-
-1. Push to GitHub
-2. Connect repo to Vercel
-3. Set environment variables in Vercel dashboard
-4. Deploy!
-
 ### Docker
 
 ```bash
@@ -405,36 +396,7 @@ npm start
 - **Users**: No password validation (simplified auth)
 - **Emails**: No email sending capability
 
-## What's Required vs. Optional
 
-### Required ✅
-
-- Multi-tenant model (projects, users, scoped conversations)
-- Access/authorization (server-enforced, admin routes protected)
-- Layered API (Access → Services → Routes → Hooks → UI)
-- Chat + controlled AI + integration toggles
-- **Config-driven admin dashboard** (MongoDB drives layout)
-- Frontend UX & code quality
-
-### Optional (Not Implemented)
-
-- Config-driven tabs in main product shell
-- Unit tests for access rules
-- data-testid attributes
-- Real email sending
-- Advanced rate limiting
-
-## Evaluation Criteria Checklist
-
-| Criterion | Points | Status |
-|-----------|--------|--------|
-| Multi-tenant model | 25 | ✅ Complete |
-| Access / authorization | 15 | ✅ Complete |
-| Layered API + Zod | 20 | ✅ Complete |
-| Chat + AI + integrations | 15 | ✅ Complete |
-| Config-driven dashboard | 15 | ✅ Complete |
-| Frontend UX & quality | 10 | ✅ Complete |
-| **Total** | **100** | ✅ **100%** |
 
 ## Notes
 
